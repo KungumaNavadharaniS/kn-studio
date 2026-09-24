@@ -49,12 +49,20 @@ export default function HeroScene() {
           <span>Kunguma</span> <span>Navadharani</span>
         </h1>
         <p className="hero-sub">Full Stack Developer &middot; Designer &middot; Creator</p>
-        <button className="btn hero-cta" onClick={() => {
-          const t = document.getElementById("experience");
-          window.__lenis ? window.__lenis.scrollTo(t, { duration: 1.4 }) : t.scrollIntoView({ behavior: "smooth" });
-        }}>
-          Explore My Work
-        </button>
+<button
+  className="btn hero-cta"
+  onClick={() => {
+    const t = document.getElementById("works");
+
+    if (t) {
+      window.__lenis
+        ? window.__lenis.scrollTo(t, { duration: 1.4 })
+        : t.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Explore My Work
+</button>
       </div>
 
       <div className="hero-scrollcue">
