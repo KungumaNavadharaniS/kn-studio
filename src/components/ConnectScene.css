@@ -1,0 +1,55 @@
+.connect-scene {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.connect-scene__bg {
+  position: absolute;
+  inset: -4%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform, filter;
+}
+
+.connect-scene__scrim {
+  position: absolute;
+  inset: 0;
+  opacity: 0.82;
+  background: linear-gradient(10deg, rgba(8,7,12,0.96) 0%, rgba(8,7,12,0.55) 45%, rgba(8,7,12,0.35) 70%, rgba(8,7,12,0.7) 100%);
+  transition: opacity 0.4s ease;
+}
+
+.connect-scene__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(circle at 55% 45%, rgba(232, 162, 89, 0.25), transparent 45%);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.connect-copy {
+  position: relative;
+  z-index: 2;
+  padding: 0 var(--edge);
+  max-width: 560px;
+}
+
+.connect-copy h2 {
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  font-weight: 600;
+  margin-top: 12px;
+  line-height: 1.08;
+}
+
+.connect-copy__sub { margin-top: 18px; font-size: 1.05rem; }
+
+.connect-cta { margin-top: 30px; }
+
+@media (max-width: 720px) {
+  .connect-scene__bg { background-position: 62% center; }
+  .connect-copy { max-width: 100%; }
+}

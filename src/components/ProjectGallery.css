@@ -1,0 +1,486 @@
+/* =========================================================
+   GALLERY OVERLAY
+========================================================= */
+
+.gallery-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+
+  background: rgba(5, 4, 9, 0.86);
+  backdrop-filter: blur(18px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3vh 3vw;
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   VIEWER CARD
+========================================================= */
+
+.gallery-viewer {
+  width: min(1280px, 96vw);
+
+  background: linear-gradient(
+    160deg,
+    #17151f,
+    #0c0b11
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 22px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.8),
+    0 0 60px -10px rgba(140, 92, 245, 0.18);
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.gallery-viewer__bar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 4px 6px 16px;
+}
+
+
+.gallery-viewer__brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.12em;
+
+  color: var(--paper);
+
+  text-transform: uppercase;
+}
+
+
+.gallery-viewer__dot {
+  width: 9px;
+
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--violet-soft);
+
+  box-shadow:
+    0 0 10px rgba(150, 80, 255, 0.8);
+}
+
+
+.gallery-viewer__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.gallery-viewer__icon-btn {
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--paper);
+
+  font-size: 1.15rem;
+
+  line-height: 1;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.gallery-viewer__icon-btn:hover:not(:disabled) {
+  background: rgba(140, 92, 245, 0.16);
+
+  border-color: rgba(210, 180, 255, 0.5);
+}
+
+
+.gallery-viewer__icon-btn:disabled {
+  opacity: 0.3;
+
+  cursor: default;
+}
+
+
+.gallery-viewer__close {
+  font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   ACCORDION STAGE — VIDEO CATEGORIES ONLY
+========================================================= */
+
+.gallery-accordion {
+  display: flex;
+
+  gap: 8px;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 8;
+
+  max-height: 78vh;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: #111019;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.accordion-panel {
+  position: relative;
+
+  flex: 1 1 0%;
+
+  min-width: 54px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  background: #16141c;
+
+  transition:
+    flex 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+.accordion-panel.is-active {
+  flex: 12 1 0%;
+
+  min-width: 220px;
+
+  cursor: default;
+}
+
+
+.accordion-panel video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: #000;
+}
+
+
+.accordion-panel__dot {
+  display: none !important;
+}
+
+
+.accordion-panel:not(.is-active):focus-visible {
+  outline: 2px solid var(--violet-soft);
+
+  outline-offset: -2px;
+}
+
+
+/* =========================================================
+   IMAGE STAGE — IMAGE CATEGORIES ONLY
+   Plain flat full-bleed image, no strips, no chrome.
+========================================================= */
+
+.gallery-image-stage {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  max-height: 78vh;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    160deg,
+    #1c1a26,
+    #0f0e15
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.gallery-image-stage:fullscreen {
+  background: #000;
+
+  border-radius: 0;
+
+  border: none;
+}
+
+
+.gallery-image-stage__fullscreen {
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  background: rgba(5, 4, 9, 0.55);
+  backdrop-filter: blur(4px);
+
+  color: var(--paper);
+
+  font-size: 1.05rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.gallery-image-stage__fullscreen:hover {
+  background: rgba(140, 92, 245, 0.28);
+
+  border-color: rgba(210, 180, 255, 0.5);
+}
+
+
+.gallery-image-stage img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: transparent;
+}
+
+
+.gallery-image-stage__error {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+
+/* =========================================================
+   DOT NAVIGATION
+========================================================= */
+
+.gallery-viewer__dots {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+}
+
+
+.gallery-viewer__dotnav {
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.22);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.gallery-viewer__dotnav.is-active {
+  background: var(--violet-soft);
+
+  transform: scale(1.3);
+}
+
+
+/* =========================================================
+   EMPTY CATEGORY
+========================================================= */
+
+.gallery-viewer__empty {
+  min-height: 280px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+
+  border-radius: 16px;
+
+  padding: 20px;
+}
+
+
+.gallery-viewer__empty h3 {
+  margin: 0 0 8px;
+
+  color: var(--paper);
+
+  font-size: 1.1rem;
+
+  letter-spacing: 0.04em;
+}
+
+
+.gallery-viewer__empty p {
+  margin: 0;
+
+  max-width: 40ch;
+
+  color: var(--paper-dim);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .gallery-overlay {
+    padding: 4vh 4vw;
+  }
+
+
+  .gallery-viewer {
+    padding: 14px 12px 20px;
+
+    border-radius: 18px;
+  }
+
+
+  .gallery-accordion {
+    gap: 6px;
+
+    aspect-ratio: 4 / 5;
+
+    max-height: 68vh;
+
+    border-radius: 14px;
+  }
+
+
+  .accordion-panel {
+    min-width: 34px;
+  }
+
+
+  .accordion-panel.is-active {
+    min-width: 160px;
+  }
+
+
+  .gallery-image-stage {
+    aspect-ratio: 4 / 5;
+
+    max-height: 68vh;
+
+    border-radius: 14px;
+  }
+}

@@ -1,0 +1,243 @@
+/* =========================================
+   EXPERIENCE SCENE
+========================================= */
+
+.experience-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background-color: #08070d;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+/* =========================================
+   INNER
+========================================= */
+
+.experience-inner {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   CONTENT AREA
+========================================= */
+
+.experience-content {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 5%;
+  top: 8%;
+
+  width: 53%;
+  max-width: 720px;
+
+  color: var(--paper);
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.experience-content .eyebrow-mono {
+  margin: 0 0 18px;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.22em;
+
+  color: var(--violet-soft);
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.experience-content h2 {
+  margin: 0 0 38px;
+
+  font-size: clamp(2.2rem, 4vw, 4rem);
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  color: var(--paper);
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.experience-timeline {
+  position: relative;
+
+  padding-left: 30px;
+
+  /* Stops the last item's margin-bottom from collapsing through this
+     container's bottom edge, so the container's height (and the line
+     anchored to it) actually reaches all the way past the last item. */
+  display: flow-root;
+}
+
+
+/* =========================================
+   GLOWING VERTICAL LINE
+========================================= */
+
+.experience-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 6px;
+
+  top: 5px;
+  bottom: 5px;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(170, 100, 255, 0.95),
+    rgba(170, 100, 255, 0.25)
+  );
+
+  box-shadow:
+    0 0 12px rgba(140, 70, 255, 0.6);
+}
+
+
+/* =========================================
+   EXPERIENCE ITEM
+========================================= */
+
+.experience-item {
+  position: relative;
+
+  display: flex;
+
+  margin-bottom: 32px;
+}
+
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   TIMELINE DOT
+========================================= */
+
+.experience-dot {
+  position: absolute;
+
+  left: -30px;
+  top: 2px;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: #1a1025;
+
+  border: 2px solid rgba(170, 100, 255, 0.95);
+
+  box-shadow:
+    0 0 14px rgba(150, 80, 255, 0.8);
+}
+
+
+/* =========================================
+   EXPERIENCE TEXT
+========================================= */
+
+.experience-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  color: var(--paper);
+}
+
+
+.experience-role {
+  margin: 0;
+
+  font-size: 0.82rem;
+
+  color: rgba(240, 235, 250, 0.78);
+}
+
+
+.experience-period {
+  margin: 5px 0 0;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.68rem;
+
+  color: var(--violet-soft);
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.experience-description {
+  margin-top: 38px;
+
+  font-size: 0.85rem;
+
+  color: rgba(230, 225, 240, 0.65);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .experience-section {
+    min-height: 100svh;
+
+    background-position: 65% center;
+  }
+
+  .experience-inner {
+    min-height: 100svh;
+  }
+
+  .experience-content {
+    left: 6%;
+
+    top: 7%;
+
+    width: 72%;
+  }
+
+  .experience-content h2 {
+    font-size: 2.2rem;
+  }
+}

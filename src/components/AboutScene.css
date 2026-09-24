@@ -1,0 +1,278 @@
+.about-scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND IMAGE
+========================================= */
+
+.about-scene__bg {
+  position: absolute;
+  inset: -5%;
+
+  z-index: 0;
+
+  background-size: cover;
+  background-position: 62% center;
+  background-repeat: no-repeat;
+
+  will-change: transform;
+}
+
+
+/* =========================================
+   LIGHT SCRIM
+========================================= */
+
+.about-scene__scrim {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background: rgba(5, 4, 10, 0.08);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENT INSIDE THE WALL
+========================================= */
+.about-panel {
+  position: absolute;
+  z-index: 3;
+
+  left: 5%;
+  top: -1%;
+
+  width: 75%;
+  height: 76%;
+
+  box-sizing: border-box;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  padding: 45px 7%;
+
+  display: flex;
+  align-items: center;
+
+  /* Keep the content perfectly straight */
+  transform: none;
+  transform-origin: center center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+.about-panel__inner {
+  width: 100%;
+  max-width: 720px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  transform: none;
+  transform-origin: center;
+
+  gap: 14px;
+
+  /* Keep text horizontal */
+  writing-mode: horizontal-tb;
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.about-panel .eyebrow-mono {
+  margin: 0;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+
+  color: var(--violet-soft);
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.about-panel h2 {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.08;
+  font-weight: 600;
+
+  color: var(--paper);
+
+  /* Prevent any accidental text transformation */
+  transform: none;
+  white-space: normal;
+}
+
+
+/* =========================================
+   MAIN DESCRIPTION
+========================================= */
+
+.about-panel__lede {
+  margin: 0;
+
+  max-width: 650px;
+
+  color: var(--paper);
+
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   SECOND DESCRIPTION
+========================================= */
+
+.about-panel__inner > p:not(.eyebrow-mono):not(.about-panel__lede) {
+  margin: 0;
+
+  max-width: 650px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: clamp(0.82rem, 1vw, 0.98rem);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.about-panel__tags {
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin: 5px 0;
+
+  padding: 0;
+
+  max-width: 650px;
+}
+
+.about-panel__tags li {
+  font-family: var(--font-mono);
+
+  font-size: 0.68rem;
+
+  padding: 6px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 999px;
+
+  color: var(--violet-soft);
+
+  background: rgba(140, 92, 245, 0.08);
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   RESUME BUTTON
+========================================= */
+
+.about-panel .btn {
+  margin-top: 5px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .about-panel {
+    left: 8%;
+    top: 12%;
+
+    width: 73%;
+    height: 74%;
+
+    padding: 35px 6%;
+  }
+
+  .about-panel__inner {
+    max-width: 600px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 720px) {
+
+  .about-scene {
+    min-height: 100svh;
+  }
+
+  .about-scene__bg {
+    inset: -5%;
+
+    background-position: 67% center;
+  }
+
+  .about-panel {
+    left: 6%;
+    top: 10%;
+
+    width: 88%;
+    height: 75%;
+
+    padding: 25px 7%;
+
+    align-items: center;
+  }
+
+  .about-panel__inner {
+    max-width: 100%;
+  }
+
+  .about-panel h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-panel__lede {
+    font-size: 0.9rem;
+  }
+
+  .about-panel__inner > p:not(.eyebrow-mono):not(.about-panel__lede) {
+    font-size: 0.78rem;
+  }
+}

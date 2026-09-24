@@ -1,0 +1,13 @@
+/* Cross-scene layout rules that don't belong to any single component */
+
+.kn-studio { position: relative; }
+
+.scene-transition { will-change: transform, opacity; }
+
+/* keeps each full-bleed scene from letting its background image show
+   seams against the next scene while GSAP scrub animations are running */
+.hero-scene,
+.about-scene,
+.connect-scene {
+  background: var(--ink);
+}

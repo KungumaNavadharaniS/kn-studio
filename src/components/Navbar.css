@@ -1,0 +1,72 @@
+.kn-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--edge);
+  background: linear-gradient(to bottom, rgba(8, 7, 12, 0.55), transparent);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+}
+
+.kn-nav--solid {
+  padding: 14px var(--edge);
+  background: rgba(10, 9, 15, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.kn-nav__mark {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--violet-soft);
+  padding: 4px;
+}
+
+.kn-nav__links {
+  list-style: none;
+  display: flex;
+  gap: 34px;
+  margin: 0;
+  padding: 0;
+}
+
+.kn-nav__links button {
+  font-size: 0.86rem;
+  color: var(--paper-dim);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.kn-nav__links button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0%;
+  background: var(--violet-soft);
+  transition: width 0.35s ease;
+}
+
+.kn-nav__links button:hover,
+.kn-nav__links button.is-active {
+  color: var(--paper);
+}
+
+.kn-nav__links button.is-active::after,
+.kn-nav__links button:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .kn-nav__links { gap: 18px; }
+  .kn-nav__links button { font-size: 0.72rem; }
+  .kn-nav { padding: 16px 20px; }
+}
