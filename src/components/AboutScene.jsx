@@ -1,7 +1,10 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import aboutImg from "../assets/about-character.jpg";
+import aboutMobileImg from "../assets/about-mobile.png";
+
 import "./AboutScene.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,8 +14,9 @@ const SKILLS = [
   "React",
   "Node.js",
   "MongoDB",
+  "Python",
   "Full Stack",
-  "UI/UX"
+  "UI/UX",
 ];
 
 export default function AboutScene() {
@@ -20,14 +24,6 @@ export default function AboutScene() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-
-      /*
-       * Only animate the text when the section
-       * first appears.
-       *
-       * The WALL and CONTENT themselves
-       * do not move.
-       */
       gsap.from(".about-panel__inner > *", {
         opacity: 0,
         duration: 0.7,
@@ -40,7 +36,6 @@ export default function AboutScene() {
           once: true,
         },
       });
-
     }, root);
 
     return () => ctx.revert();
@@ -51,22 +46,19 @@ export default function AboutScene() {
       id="about"
       ref={root}
       className="about-scene"
+      style={{
+        "--about-desktop-bg": `url("${aboutImg}")`,
+        "--about-mobile-bg": `url("${aboutMobileImg}")`,
+      }}
     >
-
-      {/* Background room */}
-      <div
-        className="about-scene__bg"
-        style={{
-          backgroundImage: `url(${aboutImg})`,
-        }}
-      />
+      {/* Responsive background */}
+      <div className="about-scene__bg" />
 
       {/* Very light readability layer */}
       <div className="about-scene__scrim" />
 
-      {/* Content locked inside the wall */}
+      {/* Content stays inside the wall */}
       <div className="about-panel">
-
         <div className="about-panel__inner">
 
           <p className="eyebrow-mono">
@@ -108,9 +100,7 @@ export default function AboutScene() {
           </a>
 
         </div>
-
       </div>
-
     </section>
   );
 }

@@ -1,21 +1,33 @@
+/* =========================================================
+   ABOUT SCENE
+========================================================= */
+
 .about-scene {
   position: relative;
+
   width: 100%;
   height: 100vh;
   min-height: 700px;
+
   overflow: hidden;
+
+  background: #09070d;
 }
 
 
-/* =========================================
+/* =========================================================
    BACKGROUND IMAGE
-========================================= */
+   DESKTOP
+========================================================= */
 
 .about-scene__bg {
   position: absolute;
-  inset: -5%;
+
+  inset: 0;
 
   z-index: 0;
+
+  background-image: var(--about-desktop-bg);
 
   background-size: cover;
   background-position: 62% center;
@@ -25,12 +37,13 @@
 }
 
 
-/* =========================================
+/* =========================================================
    LIGHT SCRIM
-========================================= */
+========================================================= */
 
 .about-scene__scrim {
   position: absolute;
+
   inset: 0;
 
   z-index: 1;
@@ -41,76 +54,80 @@
 }
 
 
-/* =========================================
-   CONTENT INSIDE THE WALL
-========================================= */
+/* =========================================================
+   CONTENT AREA
+   DESKTOP
+========================================================= */
+
 .about-panel {
   position: absolute;
+
   z-index: 3;
 
-  left: 5%;
-  top: -1%;
+  /*
+    This keeps the content inside the large
+    glowing wall on desktop.
+  */
+  left: 10%;
+  top: 16%;
 
-  width: 75%;
-  height: 76%;
+  width: 53%;
+  height: 58%;
 
   box-sizing: border-box;
 
   background: transparent;
-  border: none;
-  box-shadow: none;
 
-  padding: 45px 7%;
+  padding: 35px 4%;
 
   display: flex;
   align-items: center;
-
-  /* Keep the content perfectly straight */
-  transform: none;
-  transform-origin: center center;
 
   overflow: hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    CONTENT
-========================================= */
+========================================================= */
+
 .about-panel__inner {
   width: 100%;
+
   max-width: 720px;
 
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 
-  transform: none;
-  transform-origin: center;
+  flex-direction: column;
+
+  align-items: flex-start;
 
   gap: 14px;
 
-  /* Keep text horizontal */
   writing-mode: horizontal-tb;
+
+  transform: none;
 }
 
 
-/* =========================================
-   SMALL TITLE
-========================================= */
+/* =========================================================
+   EYEBROW
+========================================================= */
 
 .about-panel .eyebrow-mono {
   margin: 0;
 
   font-size: 0.75rem;
+
   letter-spacing: 0.22em;
 
   color: var(--violet-soft);
 }
 
 
-/* =========================================
-   MAIN HEADING
-========================================= */
+/* =========================================================
+   HEADING
+========================================================= */
 
 .about-panel h2 {
   margin: 0;
@@ -118,20 +135,22 @@
   max-width: 650px;
 
   font-size: clamp(2rem, 3.2vw, 3rem);
+
   line-height: 1.08;
+
   font-weight: 600;
 
   color: var(--paper);
 
-  /* Prevent any accidental text transformation */
   transform: none;
+
   white-space: normal;
 }
 
 
-/* =========================================
-   MAIN DESCRIPTION
-========================================= */
+/* =========================================================
+   FIRST DESCRIPTION
+========================================================= */
 
 .about-panel__lede {
   margin: 0;
@@ -146,9 +165,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    SECOND DESCRIPTION
-========================================= */
+========================================================= */
 
 .about-panel__inner > p:not(.eyebrow-mono):not(.about-panel__lede) {
   margin: 0;
@@ -163,14 +182,15 @@
 }
 
 
-/* =========================================
+/* =========================================================
    SKILLS
-========================================= */
+========================================================= */
 
 .about-panel__tags {
   list-style: none;
 
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 8px;
@@ -181,6 +201,7 @@
 
   max-width: 650px;
 }
+
 
 .about-panel__tags li {
   font-family: var(--font-mono);
@@ -201,78 +222,361 @@
 }
 
 
-/* =========================================
+/* =========================================================
    RESUME BUTTON
-========================================= */
+========================================================= */
 
 .about-panel .btn {
   margin-top: 5px;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+
+  .about-scene {
+    min-height: 650px;
+  }
+
+  .about-scene__bg {
+    background-position: 60% center;
+  }
 
   .about-panel {
     left: 8%;
-    top: 12%;
 
-    width: 73%;
-    height: 74%;
+    top: 17%;
 
-    padding: 35px 6%;
+    width: 57%;
+
+    height: 57%;
+
+    padding: 30px 4%;
   }
 
   .about-panel__inner {
     max-width: 600px;
   }
+
+  .about-panel h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+   <= 720px
+========================================================= */
 
 @media (max-width: 720px) {
 
   .about-scene {
-    min-height: 100svh;
+
+    width: 100%;
+
+    height: 100svh;
+
+    min-height: 650px;
+
+    max-height: 900px;
+
+    overflow: hidden;
+
+    /*
+      Prevent horizontal movement.
+    */
+    overscroll-behavior-x: none;
   }
+
+
+  /* =======================================================
+     MOBILE PORTRAIT BACKGROUND
+
+     This uses the NEW uploaded image.
+
+     Desktop image is NOT used here.
+  ======================================================= */
 
   .about-scene__bg {
-    inset: -5%;
 
-    background-position: 67% center;
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-image: var(--about-mobile-bg);
+
+    /*
+      The uploaded image is already portrait,
+      so contain would create empty areas.
+
+      cover fills the complete phone screen.
+    */
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    transform: none !important;
   }
+
+
+  /* =======================================================
+     VERY LIGHT MOBILE SCRIM
+  ======================================================= */
+
+  .about-scene__scrim {
+
+    background: rgba(5, 4, 10, 0.05);
+  }
+
+
+  /* =======================================================
+     MOBILE WALL CONTENT
+
+     IMPORTANT:
+     The content is positioned INSIDE the blank wall
+     visible in the portrait image.
+  ======================================================= */
 
   .about-panel {
-    left: 6%;
-    top: 10%;
 
-    width: 88%;
-    height: 75%;
+    left: 8%;
 
-    padding: 25px 7%;
+    top: 28%;
+
+    width: 55%;
+
+    height: 32%;
+
+    padding: 0;
+
+    display: flex;
 
     align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
   }
 
+
   .about-panel__inner {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    gap: 7px;
+
+    align-items: flex-start;
+  }
+
+
+  /* =======================================================
+     MOBILE TEXT SIZES
+  ======================================================= */
+
+  .about-panel .eyebrow-mono {
+
+    font-size: 0.48rem;
+
+    letter-spacing: 0.18em;
+
+    margin: 0;
+  }
+
+
+  .about-panel h2 {
+
+    font-size: clamp(
+      1rem,
+      4.8vw,
+      1.45rem
+    );
+
+    line-height: 1.08;
+
+    max-width: 100%;
+
+    margin: 0;
+  }
+
+
+  .about-panel__lede {
+
+    font-size: clamp(
+      0.55rem,
+      2.2vw,
+      0.72rem
+    );
+
+    line-height: 1.35;
+
+    max-width: 100%;
+
+    margin: 0;
+  }
+
+
+  .about-panel__inner > p:not(.eyebrow-mono):not(.about-panel__lede) {
+
+    font-size: clamp(
+      0.48rem,
+      1.9vw,
+      0.64rem
+    );
+
+    line-height: 1.35;
+
+    max-width: 100%;
+
+    margin: 0;
+  }
+
+
+  /* =======================================================
+     MOBILE SKILLS
+  ======================================================= */
+
+  .about-panel__tags {
+
+    gap: 4px;
+
+    margin: 2px 0;
+
     max-width: 100%;
   }
 
-  .about-panel h2 {
-    font-size: 1.8rem;
+
+  .about-panel__tags li {
+
+    font-size: 0.42rem;
+
+    padding: 3px 6px;
+
+    line-height: 1;
+
   }
+
+
+  /* =======================================================
+     MOBILE RESUME BUTTON
+  ======================================================= */
+
+  .about-panel .btn {
+
+    margin-top: 2px;
+
+    font-size: 0.52rem;
+
+    padding: 7px 12px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .about-scene {
+
+    height: 100svh;
+
+    min-height: 600px;
+  }
+
+
+  /*
+    Slightly smaller wall content
+    for narrow phones.
+  */
+
+  .about-panel {
+
+    left: 8%;
+
+    top: 28%;
+
+    width: 55%;
+
+    height: 31%;
+  }
+
+
+  .about-panel__inner {
+
+    gap: 6px;
+  }
+
+
+  .about-panel h2 {
+
+    font-size: 1rem;
+
+    line-height: 1.05;
+  }
+
 
   .about-panel__lede {
-    font-size: 0.9rem;
+
+    font-size: 0.53rem;
+
+    line-height: 1.3;
   }
 
+
   .about-panel__inner > p:not(.eyebrow-mono):not(.about-panel__lede) {
-    font-size: 0.78rem;
+
+    font-size: 0.47rem;
+
+    line-height: 1.3;
   }
+
+
+  .about-panel__tags {
+
+    gap: 3px;
+  }
+
+
+  .about-panel__tags li {
+
+    font-size: 0.38rem;
+
+    padding: 3px 5px;
+  }
+
+
+  .about-panel .btn {
+
+    font-size: 0.48rem;
+
+    padding: 6px 10px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-scene__bg {
+
+    transform: none !important;
+  }
+
 }
